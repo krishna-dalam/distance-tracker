@@ -1,8 +1,9 @@
 import React from "react";
 import { Text, View, StyleSheet, Button, YellowBox } from "react-native";
 
-import { database } from "./src/firebase/connection";
 import useLocation from "./src/location/useLocation";
+import { Input } from "react-native-elements";
+import Home from "./src/screens/Home";
 
 export default function App() {
   const location = useLocation();
@@ -32,7 +33,7 @@ export default function App() {
       .set({
         // replace with data
         name: "Krishna",
-        age: 23,
+        age: 25,
       })
       .then(() => {
         console.log("Inserted");
@@ -43,13 +44,11 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
-      <Text>{"Location"}</Text>
-      <Button
-        title="Call DB"
-        onPress={() => console.log(location.latitude, location.longitude)}
-      />
-    </View>
+    // <View style={styles.container}>
+    //   <Input placeholder="Name" onPress />
+    //   <Button title="Call DB" onPress={putUser} />
+    // </View>
+    <Home />
   );
 }
 
